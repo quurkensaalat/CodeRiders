@@ -19,9 +19,16 @@ echo $string . "<br>";
 echo $boolean . "<br>";
 
 print_r($array);
+echo "<br>";
+
 print_r($arrayStrings);
+echo "<br>";
+
 print_r($arrayMixed);
+echo "<br>";
+
 print_r($associativeArray);
+echo "<br>";
 
 // Ausgabe einzelner Werte aus dem assoziativen Array
 echo $associativeArray["name"] . "<br>";
@@ -31,8 +38,29 @@ echo $associativeArray["age"] . "<br>";
 echo $associativeArray["city"] . "<br>";
 
 // Bedingungen
+if ($integer > 0) {
+    echo "The integer is positive.<br>";
+} else {
+    echo "The integer is not positive.<br>";
+}
 
-// Schleifen
+if ($float > 0) {
+    echo "The float is positive.<br>";
+} else {
+    echo "The float is not positive.<br>";
+}
+
+if ($string == "Hello, world!") {
+    echo "The string is 'Hello, world!'.<br>";
+} else {
+    echo "The string is not 'Hello, world!'.<br>";
+}
+
+if ($boolean) {
+    echo "The boolean is true.<br>";
+} else {
+    echo "The boolean is false.<br>";
+}
 
 // Array mit Schleifen ausgeben
 
