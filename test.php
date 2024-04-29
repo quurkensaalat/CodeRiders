@@ -10,18 +10,18 @@ $arrayMixed = [1, "apple", true];
 $associativeArray = ["name" => "John", "age" => 30];
 
 // Ausgabe der Variablen
-echo $integer . "\n";
-echo $float . "\n";
-echo $string . "\n";
-echo $boolean . "\n";
+echo $integer . "<br>";
+echo $float . "<br>";
+echo $string . "<br>";
+echo $boolean . "<br>";
 print_r($array);
 print_r($arrayStrings);
 print_r($arrayMixed);
 print_r($associativeArray);
 
 // Ausgabe einzelner Werte aus dem assoziativen Array
-echo $associativeArray["name"] . "\n";
-echo $associativeArray["age"] . "\n";
+echo $associativeArray["name"] . "<br>";
+echo $associativeArray["age"] . "<br>";
 
 
 
