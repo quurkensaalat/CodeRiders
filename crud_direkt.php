@@ -29,6 +29,21 @@ if (isset($_POST['submit'])) {
   $json = json_encode($result);
 }
 
+// 3. Lesen eines Datensatzes mit id
+
+if (isset($_POST['read'])) {
+  $id = $_POST['id'];
+
+  $sql = "SELECT * FROM User WHERE id = :id";
+  $stmt = $pdo->prepare($sql);
+  $stmt->bindParam(':id', $id);
+  $stmt->execute();
+  $singleUser = $stmt->fetch(PDO::FETCH_ASSOC);
+  $json = json_encode($singleUser);
+} else {
+  $singleUser = false;
+  $json = json_encode($singleUser);
+}
 
 // 4. Lesen aller Datensätze, die den String $string in firstname, lastname oder email enthalten
 if (isset($_POST['search'])) {
@@ -87,65 +102,6 @@ if ($json != "false") {
 
 <body>
   <h1><a href="crud_direkt.php">CRUD - PHP</a></h1>
-
-
-  <!-- 1. Ausgabe des Arras $users in einer Tabelle -->
-  <table>
-    <tr>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Email</th>
-    </tr>
-    <?php foreach ($users as $user) : ?>
-      <tr>
-        <td><?php echo $user['id']; ?></td>
-        <td><?php echo $user['firstname']; ?></td>
-        <td><?php echo $user['lastname']; ?></td>
-        <td><?php echo $user['email']; ?></td>
-      </tr>
-    <?php endforeach; ?>
-  </table>
-
-  <!-- 2. Einfügen eines neuen Datensatzes -->
-  <form method="POST" action="">
-    <input type="text" name="firstname" placeholder="First Name">
-    <input type="text" name="lastname" placeholder="Last Name">
-    <input type="email" name="email" placeholder="Email">
-    <button type="submit" name="submit">Insert</button>
-  </form>
-
-  <?php
-  ?>
-
-  <!-- 3. Lesen eines Datensatzes mit id -->
-  <form method="POST" action="">
-    <input type="text" name="id" placeholder="ID">
-    <button type="submit" name="read">Read</button>
-  </form>
-
-  <?php
-
-  if ($singleUser) {
-    echo "ID: " . $singleUser['id'] . "<br>";
-    echo "First Name: " . $singleUser['firstname'] . "<br>";
-    echo "Last Name: " . $singleUser['lastname'] . "<br>";
-    echo "Email: " . $singleUser['email'] . "<br>";
-  }
-  ?>
-
-  <!-- 4. Lesen aller Datensätze, die den String $string in firstname, lastname oder email enthalten -->
-  <form method="POST" action="">
-    <input type="text" name="string" placeholder="Search">
-    <button type="submit" name="search">Search</button>
-  </form>
-
-  <?php
- 
-
-  <?php
-
-  ?>
 
 
 </body>
