@@ -4,9 +4,9 @@
 $db_host     = 'localhost';     // Hostserver, auf dem die DB läuft.
 // «localhost» bedeutet: die selbe Serveradresse, auf dem auch die Seiten gespeichert sind
 
-$db_name = '';   // Name der Datenbank (stimmt im Beispiel nur zufällig mit username überein)
-$db_user = '';   // Name des DB-Users (stimmt im Beispiel nur zufällig mit Datenbankname überein)
-$db_pass = '';  // Passwort des DB-Users*/
+$db_name = '585279_2_1';   // Name der Datenbank (stimmt im Beispiel nur zufällig mit username überein)
+$db_user = '585279_2_1';   // Name des DB-Users (stimmt im Beispiel nur zufällig mit Datenbankname überein)
+$db_pass = '8duLAP4zVwDN';  // Passwort des DB-Users*/
 
 
 
