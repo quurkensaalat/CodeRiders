@@ -29,21 +29,6 @@ if (isset($_POST['submit'])) {
   $json = json_encode($result);
 }
 
-// 3. Lesen eines Datensatzes mit id
-
-if (isset($_POST['read'])) {
-  $id = $_POST['id'];
-
-  $sql = "SELECT * FROM User WHERE id = :id";
-  $stmt = $pdo->prepare($sql);
-  $stmt->bindParam(':id', $id);
-  $stmt->execute();
-  $singleUser = $stmt->fetch(PDO::FETCH_ASSOC);
-  $json = json_encode($singleUser);
-} else {
-  $singleUser = false;
-  $json = json_encode($singleUser);
-}
 
 // 4. Lesen aller Datensätze, die den String $string in firstname, lastname oder email enthalten
 if (isset($_POST['search'])) {
@@ -156,21 +141,7 @@ if ($json != "false") {
   </form>
 
   <?php
-  if (isset($searchResults)) {
-    foreach ($searchResults as $result) {
-      echo "ID: " . $result['id'] . "<br>";
-      echo "First Name: " . $result['firstname'] . "<br>";
-      echo "Last Name: " . $result['lastname'] . "<br>";
-      echo "Email: " . $result['email'] . "<br>";
-    }
-  }
-  ?>
-
-  <!-- 5. Delete mit email -->
-  <form method="POST" action="">
-    <input type="email" name="email" placeholder="Email">
-    <button type="submit" name="delete">Delete</button>
-  </form>
+ 
 
   <?php
 
