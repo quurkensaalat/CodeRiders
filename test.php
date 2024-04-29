@@ -39,6 +39,8 @@ echo $associativeArray["city"] . "<br>";
 // Assoziatives Array mit Schleifen ausgeben
 
 // Funktionen
-
+function sayhello($name) {
+    echo "Hello, " . $name . "!\n"
+}
 ?>
 <!-- erstelle eine einfache HTML-Struktur und gebe alle oben erzeugten Werte in der Struktur aus -->
