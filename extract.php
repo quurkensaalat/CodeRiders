@@ -1,5 +1,5 @@
 <?php
-echo "PubliBike Stations and Available Bicycles\n";
+echo "PubliBike Station and Available Bicycles\n";
 
 $url = "https://api.publibike.ch/v1/public/partner/stations";
 
