@@ -1,5 +1,5 @@
 <?php
-echo "PubliBike Station and Available Bicycles\n";
+echo "PubliBike Stations and Available Bicycles\n";
 
 $url = "https://api.publibike.ch/v1/public/partner/stations";
 
@@ -27,6 +27,7 @@ foreach ($data['stations'] as $station) {
     $address = $station['address'] ?? 'No Address';
     $zip = $station['zip'] ?? 'No PLZ';
     $city = $station['city'] ?? 'No City';
+    $capacity = $station['capacity'] ?? 'No Capacity'; 
     $vehicles = $station['vehicles'] ?? [];
 
     foreach ($vehicles as $vehicle) {
@@ -41,6 +42,7 @@ foreach ($data['stations'] as $station) {
             'address' => $address,
             'zip' => $zip,
             'city' => $city,
+            'capacity' => $capacity,
             'vehicle_id' => $vehicle_id,
             'vehicle_name' => $vehicle_name,
             'ebike_battery_level' => $ebike_battery_level,
