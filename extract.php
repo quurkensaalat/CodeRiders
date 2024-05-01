@@ -49,7 +49,7 @@ foreach ($data['stations'] as $station) {
     }
 }
 
-// print_r($station_data);
+ print_r($station_data);
 
 curl_close($ch);
 
