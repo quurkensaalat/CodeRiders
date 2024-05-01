@@ -14,7 +14,7 @@ foreach ($station_data as $station) {
 }
 
 if (count($filtered_data) > 0) {
-    echo "Stationen nur in Chur:\n";
+    echo "Test Stationen nur in Chur:\n";
     print_r($filtered_data);
 } else {
     echo "No stations found in Chur.";
