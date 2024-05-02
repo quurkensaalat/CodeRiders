@@ -1,5 +1,8 @@
 <?php
 
+header('Access-Control-Allow-Origin: https://673330-7.web.fhgr.ch');
+header('Content-Type: application/json');
+
 //Database configuration
 require_once 'config.php';
 
