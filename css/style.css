@@ -1,0 +1,754 @@
+:root {
+    --black: black;
+    --pink: #EB00FF;
+    --white: white;
+    --dunkelgrün: #144A00;
+    --hellgrün: #1F7300;
+    --gelb: #999E00;
+    --orange: #A47800;
+    --rot: #A42600;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0 auto;
+    padding: 0;
+    background-color: black;
+    color: white;
+    max-width: 1920px;
+
+}
+
+#chartContainer {
+    color: black; 
+    /* background-color: rgb(231, 230, 230); */
+}
+
+
+.rating-excellent {
+    background-color: var(--dunkelgrün); /* Dunkelgrün für ausgezeichnete Bewertungen */
+}
+
+.rating-good {
+    background-color: var(--hellgrün); /* Hellgrün für gute Bewertungen */
+}
+
+.rating-average {
+    background-color: var(--gelb); /* Gelb für durchschnittliche Bewertungen */
+}
+
+.rating-poor {
+    background-color: var(--orange); /* Orange für unterdurchschnittliche Bewertungen */
+}
+
+.rating-bad {
+    background-color: var(--rot); /* Rot für schlechte Bewertungen */
+}
+
+#bikeChart {
+    color: white;
+}
+
+@media screen and (min-width: 901px) and (max-width: 1920px) {
+    body {
+        font-size: 18px;
+        margin: 0 auto;
+    }
+
+    
+
+    .logo_bild {
+        display: flex;          
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;    
+        height: 40vh;          
+    }
+    
+    .logo {
+        max-width:25%;        
+        height: auto;           
+    }
+    
+    .untertitel {
+        margin-top: 40px;       
+        text-align: center;     
+        font-size: 1.2em;       
+    }
+
+    .zwischenbild {
+        width: 100%;
+    }
+
+    .logo_zwischenbild1, .logo_zwischenbild2 {
+        text-align: center;
+    }
+
+    .zwischentitel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Zentriert vertikal */
+        align-items: center; /* Zentriert horizontal */
+        text-align: center; 
+        margin: 5% 0%;
+        padding: 0% 25%;
+      }
+    
+      .search_input_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 6% 0%;
+      }
+
+      .maps-link {
+        background-color: transparent;
+        color: white;
+        padding: 1.5% 13%;
+        border: 1px solid white;
+        cursor:pointer;
+        margin-left: 3%;
+      }
+
+      .maps-link:hover {
+        background-color: white;
+        color: black;
+      }
+    
+      #search-input {
+        width: 50%;
+        height: 4vh;
+        padding: 12px;
+        padding-left: 20px;
+        border-radius: 25px;
+        border: 2px solid var(--pink); 
+        outline: none;
+        font-size: 16px;
+      }
+
+      #chartContainer {
+        color: black; 
+        /* background-color: rgb(231, 230, 230);  */
+        width: 80%;
+        padding: 3%;
+        margin: auto;
+        margin-bottom: 6%;
+    }
+
+
+    #suggestion-box{
+        width: 45%;
+    }
+
+    #suggestion-box ul{
+        list-style-type: none;
+        padding: 0; 
+    }
+
+    #suggestion-box li{
+        background-color: orange;
+        margin: 2% 0;
+        padding: 2%;
+    }
+
+    .suggestion-item {
+        padding: 8px 10px;
+        margin: 5px 0;
+        background-color: var(--pink);
+        color: var(--white);
+        border-radius: 4px; 
+        cursor: pointer;
+        display: block;
+        text-align: left;
+        transition: background-color 0.2s ease-in-out; 
+
+    }
+
+.suggestion-item:hover {
+    background-color: var(--white); 
+    color: var(--pink);
+    border: 1px solid var(--pink);
+}
+
+
+.station-item {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 3% 0%;
+    color: white;
+}
+
+.station-header {
+    font-weight: bold;
+    margin: 3% 0%;
+    padding-left: 3%;
+}
+
+.station-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh; 
+    margin-bottom: 3%;
+}
+
+.detail {
+    width: 33%;
+    text-align: center;
+}
+
+.detail-value {
+    font-size: 28px; 
+    font-weight: bold;
+}
+
+.detail-label {
+    font-size: 14px; 
+    color: #E2E2E2; 
+}
+
+
+
+.select-container {
+    margin: 20px;
+    padding: 10px;
+    overflow: hidden;
+    width: 40%;
+}
+
+#select-container {
+    display: none; /* Standardmäßig verstecken */
+}
+
+#station-select {
+    width: 100%;
+    padding: 3% 10% 3% 3%;
+    background-color: var(--pink);
+    color:var(--white);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#station-select:hover, #station-select:focus {
+    border-color: #b591ad; 
+    outline: none;
+}
+
+.select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+#filter_toggle {
+    width: 7%;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+.time-select-container {
+    margin-top: 3%;
+    overflow: visible; 
+}
+
+/* Styling for the time select element */
+#time-select {
+    width: 100%;
+    padding: 8px 10px;
+    background-color: var(--pink);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover and focus effects for time select */
+#time-select:hover, #time-select:focus {
+    border-color: #b591ad;
+    outline: none;
+}
+
+/* Styling for the label */
+.time-select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+/* Option text wrapping */
+#time-select option {
+    white-space: normal; /* Allows text to wrap within options */
+}
+}
+@media screen and (min-width: 431px) and (max-width: 900px) {
+    body {
+        font-size: 16px;
+        margin: 0 auto;
+    }
+
+    
+
+    .logo_bild {
+        display: flex;          
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;    
+        height: 25vh;          
+    }
+    
+    .logo {
+        max-width:35%;        
+        height: auto;           
+    }
+    
+    .untertitel {
+        margin-top: 20px;       
+        text-align: center;     
+        font-size: 1.2em;       
+    }
+
+    .zwischenbild {
+        width: 100%;
+    }
+
+    .zwischentitel {
+        text-align: center;
+        width: 90%;
+        margin: 5% 0%;
+        padding: 0% 5%;
+      }
+    
+      .search_input_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 6% 0%;
+      }
+
+      .maps-link {
+        background-color: transparent;
+        color: white;
+        padding: 1.5% 13%;
+        border: 1px solid white;
+        cursor:pointer;
+  
+      }
+
+      .maps-link:hover {
+        background-color: white;
+        color: black;
+      }
+    
+      #search-input {
+        width: 80%;
+        height: 5vh;
+        padding: 12px;
+        border-radius: 25px;
+        border: 2px solid var(--pink); 
+        outline: none;
+        font-size: 16px;
+      }
+
+      #chartContainer {
+        color: black; 
+        /* background-color: rgb(231, 230, 230);  */
+        width: 90%;
+        padding: 3%;
+        margin: auto;
+        margin-bottom: 6%;
+    }
+
+    #suggestion-box{
+        width: 80%;
+    }
+
+    #suggestion-box ul{
+        list-style-type: none;
+        padding: 0; 
+    }
+
+    #suggestion-box li{
+        background-color: orange;
+        margin: 2% 0;
+        padding: 2%;
+    }
+
+    .suggestion-item {
+        padding: 8px 10px;
+        margin: 5px 0;
+        background-color: var(--pink);
+        color: var(--white);
+        border-radius: 4px; 
+        cursor: pointer;
+        display: block;
+        text-align: left;
+        transition: background-color 0.2s ease-in-out; 
+
+    }
+
+.suggestion-item:hover {
+    background-color: var(--white); 
+    color: var(--pink);
+    border: 1px solid var(--pink);
+}
+
+
+.station-item {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 3% 0%;
+    color: white;
+}
+
+.station-header {
+    font-weight: bold;
+    margin: 3% 0%;
+  
+}
+
+.station-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh; 
+}
+
+.detail {
+    width: 33%;
+    text-align: center;
+}
+
+.detail-value {
+    font-size: 28px; 
+    font-weight: bold;
+}
+
+.detail-label {
+    font-size: 14px; 
+    color: #E2E2E2; 
+}
+
+
+
+.select-container {
+    margin: 20px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#select-container {
+    display: none; /* Standardmäßig verstecken */
+}
+
+#station-select {
+    width: 100%;
+    padding: 3% 10% 3% 3%;
+    background-color: var(--pink);
+    color:var(--white);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#station-select:hover, #station-select:focus {
+    border-color: #b591ad; 
+    outline: none;
+}
+
+.select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+#filter_toggle {
+    width: 10%;
+    margin-left: 2%;
+    cursor: pointer;
+}
+
+
+
+
+.time-select-container {
+    margin-top: 3%;
+    overflow: visible; 
+}
+
+/* Styling for the time select element */
+#time-select {
+    width: 100%;
+    padding: 8px 10px;
+    background-color: var(--pink);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover and focus effects for time select */
+#time-select:hover, #time-select:focus {
+    border-color: #b591ad;
+    outline: none;
+}
+
+/* Styling for the label */
+.time-select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+/* Option text wrapping */
+#time-select option {
+    white-space: normal; /* Allows text to wrap within options */
+}
+
+}
+
+
+@media screen and (max-width: 430px) {
+    body {
+        font-size: 16px;
+    }
+
+    
+
+    .logo_bild {
+        display: flex;          
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;    
+        height: 25vh;          
+    }
+    
+    .logo {
+        max-width: 50%;        
+        height: auto;           
+    }
+    
+    .untertitel {
+        margin-top: 20px;       
+        text-align: center;     
+        font-size: 1.2em;       
+    }
+
+    .zwischenbild {
+        width: 100%;
+    }
+
+    .zwischentitel {
+        text-align: center;
+        width: 90%;
+        margin: 5% 0%;
+        padding: 0% 5%;
+      }
+    
+      .search_input_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10%;
+        margin-bottom: 10%
+      }
+
+      .maps-link {
+        background-color: transparent;
+        color: white;
+        padding: 2.5% 10%;
+        border: 1px solid white;
+        cursor:pointer;
+      }
+
+      .maps-link:hover {
+        background-color: white;
+        color: black;
+      }
+    
+      #search-input {
+        width: 80%;
+        padding: 12px;
+        border-radius: 25px;
+        border: 2px solid var(--pink); 
+        outline: none;
+        font-size: 16px;
+      }
+
+    #suggestion-box{
+        width: 80%;
+    }
+
+    #suggestion-box ul{
+        list-style-type: none;
+        padding: 0; 
+    }
+
+    #suggestion-box li{
+        background-color: orange;
+        margin: 2% 0;
+        padding: 2%;
+    }
+
+    .suggestion-item {
+        padding: 8px 10px;
+        margin: 5px 0;
+        background-color: var(--pink);
+        color: var(--white);
+        border-radius: 4px; 
+        cursor: pointer;
+        display: block;
+        text-align: left;
+        transition: background-color 0.2s ease-in-out; 
+
+    }
+
+.suggestion-item:hover {
+    background-color: var(--white); 
+    color: var(--pink);
+    border: 1px solid var(--pink);
+}
+
+
+/* .distance-item {
+    padding: 8px 10px;
+    margin: 5px 0;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    list-style: none;
+} */
+
+#chartContainer {
+    color: black; 
+    /* background-color: rgb(231, 230, 230);  */
+    width: 90%;
+    padding: 3%;
+    margin: auto;
+    margin-bottom: 6%;
+}
+
+
+
+.station-item {
+    border: 1px solid #ccc;
+    padding: 8px;
+    margin: 3% 0%;
+    color: white;
+}
+
+.station-header {
+    font-weight: bold;
+    margin: 3% 0%;
+}
+
+.station-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh; 
+}
+
+.detail {
+    width: 33%;
+    text-align: center;
+}
+
+.detail-value {
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+.detail-label {
+    font-size: 14px; 
+    color: #E2E2E2; 
+}
+
+
+
+.select-container {
+    margin: 20px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+#select-container {
+    display: none; /* Standardmäßig verstecken */
+}
+
+#station-select {
+    width: 100%;
+    padding: 3% 10% 3% 3%;
+    background-color: var(--pink);
+    color:var(--white);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#station-select:hover, #station-select:focus {
+    border-color: #b591ad; 
+    outline: none;
+}
+
+.select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+#filter_toggle {
+    width: 15%;
+    margin-left: 5%;
+    cursor: pointer;
+}
+
+
+
+
+.time-select-container {
+    margin-top: 3%;
+    overflow: visible; 
+}
+
+/* Styling for the time select element */
+#time-select {
+    width: 100%;
+    padding: 8px 10px;
+    background-color: var(--pink);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Hover and focus effects for time select */
+#time-select:hover, #time-select:focus {
+    border-color: #b591ad;
+    outline: none;
+}
+
+/* Styling for the label */
+.time-select-label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: var(--white);
+}
+
+/* Option text wrapping */
+#time-select option {
+    white-space: normal; /* Allows text to wrap within options */
+}
+
+
+
+
+
+
+
+
+}

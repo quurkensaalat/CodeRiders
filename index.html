@@ -3,13 +3,77 @@
     <head>
         <meta charset="UTF-8">
         <title>Publibike | Stationen</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/date-fns@2.16.1/date-fns.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/date-fns/locale/de/index.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
     </head>
 <body>
     <div>
-        <h1>Publibike Chur</h1>
+        <div class="logo_bild">
+            <img src="img/publibike.png" alt="PubliBike Logo" class="logo">
+            <div class="untertitel">Rethinking. Public Mobility.</div>
+        </div>
+
+        <div class="logo_zwischenbild1">
+            <img src="img/chur.jpg" alt="Chur" class="zwischenbild">
+        </div>
+
+        <p class="zwischentitel">Ganz einfach Chur entdecken.<br>
+            Jetzt nächste PubliBike-Station finden.            
+        <p>
+            
+        <div class="search_input_container">
+            <!-- <label for="search-input">Suche Station:</label>  -->
+            <input type="text" id="search-input" placeholder="Station suchen">
+            <div id="suggestion-box" class="suggestion-box"></div>
+        </div>
+
+        <div id="chartContainer" style="display: none;"> 
+            <canvas id="bubbleChart"></canvas>
+        </div>
+
+        <div class="logo_zwischenbild2">
+            <img src="img/chur.jpg" alt="Chur" class="zwischenbild">
+        </div>
+
+        <p class="zwischentitel">
+            Wir untersuchen das Nutzungsverhalten der Publibike Stationen.<br><br> 
+Die Auslastungen werden über die Zeit ausgerechnet und bieten so relevante Insights für die mittelfristige Geschäftsentwicklung und liefern eine Entscheidungsgrundlage 
+für Aus- oder Abbau verschiedener Stationen.
+        <p>
+
+            <div class="filter-toggle">
+                <img src="img/filter_1.png" alt="Filter" id="filter_toggle">
+            </div>
+
+
+            <div class="select-container" id="select-container">
+                <label for="station-select" class="select-label">Stationen:</label>
+                <select id="station-select" multiple="multiple" size="10"></select>
+            
+                
+
+
+            <div class="time-select-container">
+                <label for="time-select" class="time-select-label">Zeitbereich auswählen:</label>
+                <select id="time-select">
+                    <option value="all">Gesamte Zeit</option>
+                    <option value="7days">Letzte 7 Tage</option>
+                    <option value="3days">Letzte 3 Tage</option>
+                    <option value="today">Heutiger Tag</option>
+                </select>
+            </div>
+
+        </div>
+        
         <canvas id="bikeChart"></canvas>
+
+
+
+       
     </div>
 
     <script src="js/script.js"></script>
